@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>Consultar jogador</h1>
+<form method="post" action="/buscar" class="busca">
+  <input type="text" name="tag" placeholder="#299PGGLQL" required>
+  <button type="submit">Buscar</button>
+</form>
+{% if recentes %}
+<h2>Consultados recentemente</h2>
+<ul>
+  {% for j in recentes %}
+  <li><a href="/jogador/{{ j.tag.lstrip('#') }}">{{ j.nick }} <span class="tag">{{ j.tag }}</span></a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
